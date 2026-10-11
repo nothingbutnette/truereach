@@ -1413,7 +1413,8 @@ $('downloadCode').onclick = async () => {
   if (await download(sourceText, hosted && !/\.html$/.test(name) ? name + '.txt' : name, 'text/plain;charset=utf-8')) toast('Source file downloaded.');
 };
 
-$('feedbackBtn').onclick = () => { $('fbResult').textContent = ''; $('fbCopyBox').hidden = true; $('feedbackDialog').showModal(); };
+const FEEDBACK_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScdybVap3MUpSn9k9MbdrPhLDLtn5g2HzAxpvbRjJ-jMQrLLw/viewform';
+$('feedbackBtn').onclick = () => { window.open(FEEDBACK_FORM, '_blank', 'noopener'); };
 $('closeFeedback').onclick = () => $('feedbackDialog').close();
 $('feedbackForm').addEventListener('submit', sendFeedback);
 $('fbCopy').onclick = async () => {
